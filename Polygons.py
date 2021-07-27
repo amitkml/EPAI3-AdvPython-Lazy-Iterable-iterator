@@ -15,10 +15,42 @@ class Polygons:
     def __init__(self, m, R):
         if m < 3:
             raise ValueError('m must be greater than 3')
-        self._m = m
-        self._R = R
-        self._polygons = [Polygon(i, R) for i in range(3, m+1)]
+        # self._m = m
+        # self._R = R
+        
+        self.Polygons_n = m
+        self.Polygons_R = R
+        
+        self._polygons = Polygons_area
+        
+        # self._polygons = [Polygon(i, R) for i in range(3, m+1)]
         self._index = 0
+        
+    @property
+    def Polygons_area(self):
+        self._polygons
+        
+    @property
+    def Polygons_n(self):
+        self.m
+
+    @property
+    def Polygons_R(self):
+        self.R
+
+    @Polygons_area.setter
+    def Polygons_area(self):
+        self._polygons = [Polygon(i, self.R) for i in range(3, self.m+1)]
+        return self._polygons 
+        
+    @Polygons_n.setter
+    def Polygons_n(self,m):
+        return self.m
+
+    @Polygons_R.setter
+    def Polygons_R(self, R):
+        return self.R
+    
         
     def __len__(self):
         return self._m - 2

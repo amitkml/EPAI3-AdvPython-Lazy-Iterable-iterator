@@ -10,11 +10,40 @@ class Polygon:
     def __init__(self, n, R):
         if n < 3:
             raise ValueError('Polygon must have at least 3 vertices.')
-        self._n = n
-        self._R = R
+        
+        #self.frodo_r =  R
+        self.frodo_n =  n
+        self.frodo_r = R
+        
+        #self._n = n
+        #self._R = R
         
     def __repr__(self):
         return f'Polygon(n={self._n}, R={self._R})'
+    
+    @property
+    def frodo_n(self):
+        return self._n
+    
+    @property
+    def frodo_r(self):
+        return self._R
+    
+    @frodo_n.setter
+    def frodo_n(self,n):
+        self._n = n
+
+    @frodo_r.setter
+    def frodo_r(self,R):
+        self._R = R
+        
+    # @frodo_r.setter 
+    # def frodo_r(self,R):
+    #     self._R = R
+        
+    @property
+    def frodo_R(self):
+        return self._R
     
     @property
     def count_vertices(self):
