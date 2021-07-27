@@ -38,6 +38,15 @@ def test_polygon():
                                     ' expected: 60')
     
 def test_polygon_size():
+    abs_tol = 0.001
+    rel_tol = 0.001
+    
+    try:
+        p = Polygon(2, 10)
+        assert False, ('Creating a Polygon with 2 sides: '
+                       ' Exception expected, not received')
+    except ValueError:
+        pass    
     n = 4
     R = 1
     p = Polygon(n, R)
@@ -97,7 +106,17 @@ def test_polygon_size():
                         rel_tol=rel_tol, abs_tol=abs_tol)
     assert math.isclose(p.interior_angle, 150,
                         rel_tol=rel_tol, abs_tol=abs_tol)
-def test_polygon_compare():    
+
+def test_polygon_compare():   
+    abs_tol = 0.001
+    rel_tol = 0.001
+    
+    try:
+        p = Polygon(2, 10)
+        assert False, ('Creating a Polygon with 2 sides: '
+                       ' Exception expected, not received')
+    except ValueError:
+        pass
     p1 = Polygon(3, 10)
     p1._n  ## to trigger the setter
     p1._R  ## to trigger the setter
