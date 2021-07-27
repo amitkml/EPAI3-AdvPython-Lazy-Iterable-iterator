@@ -36,6 +36,8 @@ def test_polygon():
     assert p.circumradius == R, f'actual: {p.circumradius}, expected: {n}'
     assert p.interior_angle == 60, (f'actual: {p.interior_angle},'
                                     ' expected: 60')
+    
+def test_polygon_size():
     n = 4
     R = 1
     p = Polygon(n, R)
@@ -95,7 +97,7 @@ def test_polygon():
                         rel_tol=rel_tol, abs_tol=abs_tol)
     assert math.isclose(p.interior_angle, 150,
                         rel_tol=rel_tol, abs_tol=abs_tol)
-    
+def test_polygon_compare():    
     p1 = Polygon(3, 10)
     p1._n  ## to trigger the setter
     p1._R  ## to trigger the setter
@@ -117,7 +119,6 @@ def test_polygon():
     p5 = Polygon(15, 100)
     p5._n  ## to trigger the setter
     p5._R  ## to trigger the setter
-    
     
     assert p2 > p1
     assert p2 < p3
